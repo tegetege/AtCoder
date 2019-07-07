@@ -10,10 +10,10 @@ Python 3.6.2
 
 # References
 AtCoder : https://atcoder.jp/  
-これから、コンテストにはバンバン参加しようと思います.
+これから、コンテストにはバンバン参加しようと思います.  
 コンテストで作成したコードは"Contest"ディレクトリに入れています.
 
 AtCoder Problems : https://kenkoooo.com/atcoder/#/table//  
 コンテストではない日には、このサイトでレコメンドされる
-過去のコンテスト問題を解いています.
+過去のコンテスト問題を解いています.  
 ここで作成したコードは"Practice"ディレクトリに入れています.
