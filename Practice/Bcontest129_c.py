@@ -1,25 +1,58 @@
-import itertools
-
-
-def judge(judge_list):
-	for i in range(len(judge_list)-1):
-		if judge_list[i+1]-judge_list[i] >2:
-			return False
-	return True
-
+'''
+参照：./img/Bcontest129_c.png
+'''
 
 N,M = map(int,input().split())
 step_list = list(range(N+1))
-
+denger_list = list()
 for i in range(M):
-	step_list.remove(int(input()))
+	#連続数値の場合、答えは0と表示するとTLEを
+	#回避できるかもしれない
+	denger_list.append(int(input()))
 
-count = 0
-ans_list = list()
-for i in range(N,int((N+1)/2),-1):
-	for i in itertools.combinations(step_list,i):
-		if judge(i):
-			if N in i and 0 in i :
-				ans_list.append(i)
 
-print(len(ans_list)%1000000007)
+ppre_step = None
+pre_step  = None
+now_step  = 0
+
+for i in range(N+1):
+	if i == 0:
+		continue
+	if i == 1:
+		if i not in denger_list:
+			ppre_step,pre_step,now_step = pre_step,0,1
+
+		if i in denger_list:
+			ppre_step,pre_step,now_step = pre_step ,0,0
+
+	if i == 2:
+		if i not in denger_list:
+			if 1 in denger_list:
+				ppre_step,pre_step,now_step = pre_step,now_step,1	
+			else:
+				ppre_step,pre_step,now_step = pre_step,now_step,2
+		if i in denger_list:
+			ppre_step,pre_step,now_step = pre_step ,now_step,0
+
+	else:
+		#そのステップが危険でない場合、そこのステップ
+		#への移動は、2つ前までの移動方法数の和となる
+		if i not in denger_list:
+			ppre_step = pre_step
+			pre_step  = now_step
+			now_step  = ppre_step + pre_step
+		#そのステップが危険な場合、そこの値は
+		#移動不可能なので0通りとなる
+		elif i in denger_list:
+			ppre_step = pre_step
+			pre_step  = now_step
+			now_step  = 0 
+	# print('========')
+	# print('i:',i)
+	# print('ppre_step:',ppre_step)
+	# print('pre_step:',pre_step)
+	# print('now_step:',now_step)
+
+
+
+print(now_step%1000000007)
