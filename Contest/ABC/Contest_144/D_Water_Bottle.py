@@ -2,7 +2,6 @@ a,b,x = map(int,input().split())
 #高さ
 high = x / (a*a)
 low = 2*x/b
-
 volume = a*a*b
 
 if high * 2 <= b:
