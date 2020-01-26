@@ -15,8 +15,6 @@ for i in range(N):
 
 
 restaurants_sorted = sorted(restaurants.items(), key=lambda x:x[0])
-# print(restaurants_sorted)
-# print(restaurants_sorted[0])
 for idx in range(len(restaurants_sorted)):
 	for i in range(len(restaurants_sorted[idx][1])):
 		print(target.index(restaurants_sorted[idx][0]+' '+str(restaurants_sorted[idx][1][i]))+1)
