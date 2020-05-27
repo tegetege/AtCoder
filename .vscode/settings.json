@@ -1,5 +1,8 @@
 {
     "runner.languageMap": {
         "cpp": ""
+    },
+    "files.associations": {
+        "iostream": "cpp"
     }
 }
