@@ -10,7 +10,7 @@ vector<int> to[100005];
 int main() {
     int n, m;
     cin >> n >> m;
-    rep(i,m) {
+    rep(i, m) {
         int a, b;
         cin >> a >> b;
         --a; --b; // 扱いやすいように0スタートにする(decrement)
