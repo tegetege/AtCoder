@@ -36,6 +36,7 @@ int main() {
     const auto &res = prime_factorize(N); // 素因数分解
     long long ans = N;
     for (auto p : res) {
+        // ans /= (1 - (1.0 / p.first) ) 
         ans *= (p.first - 1);
         ans /= p.first;
     }
