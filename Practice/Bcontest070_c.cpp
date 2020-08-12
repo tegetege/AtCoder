@@ -4,19 +4,26 @@ using namespace std;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 
 long long gcd(long long a, long long b) {
-    if (a%b == 0) {
-        return b;
-    } else {
-        return gcd(b, a%b);
-    }
-    // while (b != 0) {
-    //     a = b;
-    //     b = a % b;
+    // 再帰を利用
+    // if (a%b == 0) {
+    //     return b;
+    // } else {
+    //     return gcd(b, a%b);
     // }
-    // return a;
+
+    // while文を利用
+    long long b_;
+    while (b != 0) {
+        b_ = b;
+        b = a % b;
+        a = b_;
+        // cout << a << ":" << b << endl;
+    }
+    return a;
 }
 
 long long lcm(long long a, long long b) {
+    // cout << gcd(a, b) << endl;
     return (a / gcd(a, b)) * b;
 }
 
