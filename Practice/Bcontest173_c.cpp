@@ -15,26 +15,20 @@ int main() {
         cin >> c.at(i);
     }
 
-    for(int i = 0; i < H; ++i) {
-        // 行を何行とる？
-        for(int i_ = 0; i_ < H; ++i_) {
-            // 行を何行からとる？その行に含まれている黒いマスは何個？
-            cnt += count(c[i+i_].cbegin(), c[i+i_].cend(), '#');
-            c[i+i_] = regex_replace(c[i+i_], regex("#"), "#_"); //数えた#は#_へ置換
+    rep(is, 1 << H) {
+        rep(js, 1 << W) {
+            int cnt = 0;
+            rep(i, H) rep(j, W) {
+                // is >> i & 1
+                // 2進数(is)のi桁目を取り出して(右シフト)、その１桁目を取り出す(& 1)
+                if (is >> i&1) continue;
+                if (js >> j&1) continue;
+                if (c[i][j] == '#') cnt++;
+            }
+            if (cnt == K) ans++;
         }
-
-        for(int j = 0; j < W; ++j) {
-            // 列を何列とる?
-            for(int j_ = 0; j_ < W; ++j_) {
-                // 列を何列からとる？
-                // 赤く塗る部分は何マスある？
-            }   
-        }
-        if (cnt == K)
     }
 
-    cout << "hoge" <<"\n";
+    cout << ans <<"\n";
     return 0;
 }
-
-
