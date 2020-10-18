@@ -7,6 +7,6 @@ typedef long long ll;
 #define endl "\n"
 
 int main() { 
-    cout << "hoge" <<"\n";
+    cout << "hoge" << endl;
     return 0;
 }
