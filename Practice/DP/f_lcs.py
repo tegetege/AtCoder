@@ -3,28 +3,28 @@ T = list(input())
 s_len = len(S)
 t_len = len(T)
 # Create array for DP which has over one element.
-dp = [[0]*(t_len+1) for i in range(s_len+1)] 
+dp = [[0] * (t_len + 1) for i in range(s_len + 1)] 
 
 # Get the length of　answer with DP
 for i in range(s_len):
     for j in range(t_len):
         if S[i] == T[j]:
-            dp[i+1][j+1] = max(dp[i][j+1]+1,dp[i+1][j])
+            dp[i + 1][j + 1] = max(dp[i][j + 1] + 1, dp[i + 1][j])
         else:
-            dp[i+1][j+1] = max(dp[i][j+1],dp[i+1][j])
+            dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j])
 
 # Output
 ans = ''
 i = s_len
 j = t_len
 while i > 0 and j > 0:
-    if S[i-1] == T[j-1]:
-        ans = S[i-1] + ans
+    if S[i - 1] == T[j - 1]:
+        ans = S[i - 1] + ans
         i -= 1
         j -= 1
         # print(ans)
         continue
-    if dp[i-1][j] >= dp[i][j-1]:
+    if dp[i - 1][j] >= dp[i][j - 1]:
         i -= 1
     else:
         j -= 1
