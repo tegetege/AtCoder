@@ -24,6 +24,7 @@ int main() {
     int N, M, res=0;
     cin >> N >> M;
     vector<vector <char>> garden(N, vector<char>(M, '*'));
+    
     rep(i, N) {
         rep(j, M) {
             cin >> garden[i][j];

@@ -26,7 +26,7 @@ int main() {
     
     ll k;
     cin >> n;
-    vector<ll> a(n);
+    vector<int> a(n);
     rep(i, n) {
         cin >> a.at(i);
     }
