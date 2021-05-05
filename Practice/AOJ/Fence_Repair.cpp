@@ -1,3 +1,11 @@
+/*
+http://poj.org/problem?id=3253
+
+[8,5,8](=21)の場合、
+21 + (21-8=13) = 34
+つまり、一回のカットする長さは長い方が良いので、ソートして長い順にカットするようにアルゴリズムを作成する
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,10 +22,15 @@ int main() {
         cin >> L[i];
         long_boad = long_boad + L[i];
     }
-    sort(L.begin(), L.end());
+    sort(L.begin(), L.end()); // 昇順ソート
+
+    // for(auto e : L) {
+    //     cout << e << " ";
+    // } cout << endl;
     
     cost = long_boad;
 
+    // 長い部分からカットしていく
     for (int i = N; i > 2; i-- ) {
         cost = cost + (long_boad - L[i-1]);
         long_boad = long_boad - L[i-1];
