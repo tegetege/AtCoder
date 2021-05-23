@@ -15,6 +15,7 @@ int main() {
         cin >> L[i];
     }
     // 順位キューの準備(小さい数から出てくるように設定)
+    // priority queue は O(n logn)でヒープ を作ることができる
     priority_queue<int, vector<int>, greater<int>> que;
     rep(i, N) {
         que.push(L[i]);
