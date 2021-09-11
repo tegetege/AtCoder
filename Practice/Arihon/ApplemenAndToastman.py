@@ -10,6 +10,8 @@
 　それぞれをToastmanに渡します。
 """
 
+# listではなくて、heapqueを利用して実装し直す必要がある
+
 N = int(input())
 a = list(map(int, input().split()))
 
@@ -19,7 +21,7 @@ a_sum = sum(a)
 while len(a) > 0:
 
     ans += a_sum # Toastmanの操作
-    b = a.pop(0) # Appleman split操作: 一番小さい数字だけsplitする
+    b = a.pop(0) # Appleman split操作: 一番小さい数字だけsplitする ここはO(N)
     a_sum -= b
     if len(a) != 0:
         # 最後の1回の時に余分に足されるのを防ぐ
