@@ -1,10 +1,9 @@
-import numpy as np
-
 N, W = map(int, input().split())
-dp = np.zeros(W + 1, dtype=int)
+DP = [0] * (W + 1)
 
 for i in range(N):
-  w , v = map(int, input().split())
-  dp[w: ] = np.maximum(dp[w:], dp[:-w] + v)
+    w, v = map(int, input().split())
+    for j in range(W+1, (W+1)-w , -1 ):
+        DP[j] = map(DP[j], DP[j - w] + v)
 
-print(dp[-1])
+print(DP[-1])

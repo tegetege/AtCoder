@@ -10,12 +10,23 @@ int main() {
     string s, t;
     cin >> s;
     cin >> t;
-    int s_size = s.size();
-    int t_size = t.size();
+    
+    
     vector<vector<int>> DP(s_size+1, vector<int>(t_size+1, 0));
 
-    for (int i = 1; i <= s_size; ++i) {
-        for (int j = 1; j <= t_size; ++j) {
+    // for (int i = 1; i <= s_size; ++i) {
+    //     for (int j = 1; j <= t_size; ++j) {
+    //         if (s[i-1] == t[j-1]) {
+    //             // cout << i << " : " << j << " => " << s[i-1] << endl;
+    //             DP[i][j] = DP[i-1][j-1]+1; 
+    //         } else {
+    //             DP[i][j] = max(DP[i-1][j], DP[i][j-1]);
+    //         }
+    //     }
+    // }
+
+    for (int i = s_size; 1 < i; --i) {
+        for (int j = t_size; 1 < j; --j) {
             if (s[i-1] == t[j-1]) {
                 // cout << i << " : " << j << " => " << s[i-1] << endl;
                 DP[i][j] = DP[i-1][j-1]+1; 

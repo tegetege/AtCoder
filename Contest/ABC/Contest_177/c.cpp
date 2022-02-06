@@ -10,13 +10,14 @@ int main() {
     rep(i, N) {
         cin >> a;
         A[i] = a % mod;
-        sum_all += a % mod;
+        sum_all += A[i];
     }
 
     for(long long i = 0; i < N-1; ++i) {
         sum_all -= A[i];
         // cout << sum_all << " : " << A[i] << endl; 
-        ans = (ans + ((A[i] * sum_all) % mod)) % mod;
+        long long temp= (A[i] * sum_all) % mod;
+        ans = (ans + temp) % mod;
     }
     cout << ans << endl;
 
