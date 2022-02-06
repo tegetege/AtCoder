@@ -1,0 +1,1 @@
+print("Won") if len(set(list(str(input())))) == 1 else print("Lost")
